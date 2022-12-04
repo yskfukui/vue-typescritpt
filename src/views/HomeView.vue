@@ -12,10 +12,24 @@ import TheWelcome from "../components/TheWelcome.vue";
     <v-navigation-drawer v-model="drawer">
     </v-navigation-drawer>
 
-    <v-app-bar>
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+    <v-app-bar color="primary" dark app>
+      <v-toolbar-title>ENGLISH EXPRESS</v-toolbar-title>
+      <v-container>
+        <v-app-bar-nav-icon @click="drawer = !drawer">
+          <v-icon>mdi-vuetify</v-icon>
+        </v-app-bar-nav-icon>
+        
+        <v-btn 
+          v-for ="link in links"
+          :key="link"
+          variant="text"
+        >
+        {{link}}
+        </v-btn>
+        
 
-      <v-toolbar-title>Application</v-toolbar-title>
+      </v-container>
+      
     </v-app-bar>
 
     <v-main>
@@ -26,6 +40,13 @@ import TheWelcome from "../components/TheWelcome.vue";
 
 <script lang="ts">
 export default {
-  data: () => ({ drawer: true }),
+  data: () => ({
+    drawer: true,
+    links: [
+      "HOME",
+      "SEARCH",
+      "SUPPORT",
+    ],
+  }),
 }
 </script>
