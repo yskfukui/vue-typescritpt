@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import BookSearch from "../views/BookSearch.vue"
+import BookForm from "../views/BookForm.vue"
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,6 +19,21 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import("../views/AboutView.vue"),
     },
+    {
+      path: "/search",
+      name: 'Search',
+      component:BookSearch,
+    },
+    {
+      path: "/form",
+      name: 'Form',
+      component: BookForm
+    },
+    {
+      path: '/:paths(.*)*',
+      name: 'Fallback',
+      redirect: '/',
+    }
   ],
 });
 
